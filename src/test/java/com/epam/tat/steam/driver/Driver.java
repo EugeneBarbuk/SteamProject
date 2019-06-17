@@ -13,7 +13,7 @@ import java.net.URL;
 
 public class Driver {
     private final Logger LOGGER = LogManager.getLogger();
-    public ThreadLocal<RemoteWebDriver> driver = null;
+    private ThreadLocal<RemoteWebDriver> driver = null;
 
     public WebDriver getDriver() {
         if (driver == null) {

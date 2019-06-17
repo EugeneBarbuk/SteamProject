@@ -14,7 +14,7 @@ public class SteamPoweredPage extends BaseActions {
         super(driver);
     }
 
-    public SteamPoweredPage open() {
+    public SteamPoweredPage openSteamMainPage() {
         driver.get(STEAM_PAGE_URL);
         LOGGER.info("Main Steam page is opened.");
         return this;

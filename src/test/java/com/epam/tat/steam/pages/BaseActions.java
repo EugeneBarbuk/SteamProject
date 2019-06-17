@@ -22,29 +22,29 @@ public abstract class BaseActions {
         PageFactory.initElements(driver, this);
     }
 
-    protected void logWaitAndClickElement(WebDriver driver, WebElement elementAttr) {
-        LOGGER.info("Wait until element " + elementAttr + " to be clickable and click");
-        Waiter.waitUntilClickable(driver, elementAttr);
-        elementAttr.click();
+    protected void logWaitAndClickElement(WebDriver driver, WebElement webElement) {
+        LOGGER.info("Wait until element " + webElement + " to be clickable and click");
+        Waiter.waitUntilClickable(driver, webElement);
+        webElement.click();
     }
 
-    protected <T> void writeText(T elementAttr, String text) {
-        LOGGER.info("Write text in element " + elementAttr);
-        ((WebElement) elementAttr).sendKeys(text);
+    protected void writeText(WebElement webElement, String text) {
+        LOGGER.info("Write text in element " + webElement);
+        webElement.sendKeys(text);
     }
 
-    protected <T> String readText(T elementAttr) {
-        LOGGER.info("Get text from element " + elementAttr);
-        return ((WebElement) elementAttr).getText();
+    protected String readText(WebElement webElement) {
+        LOGGER.info("Get text from element " + webElement);
+        return webElement.getText();
 
     }
 
-    protected <T> String readAttribute(T elementAttr, String attribute) {
-        LOGGER.info("Get attribute " + attribute + " from element " + elementAttr);
-        return ((WebElement) elementAttr).getAttribute(attribute);
+    protected String readAttribute(WebElement webElement, String attribute) {
+        LOGGER.info("Get attribute " + attribute + " from element " + webElement);
+        return webElement.getAttribute(attribute);
     }
 
-    protected void switchToDefaulFrame(){
+    protected void switchToDefaulFrame() {
         LOGGER.info("Switch to default frame");
         driver.switchTo().defaultContent();
     }
@@ -62,10 +62,10 @@ public abstract class BaseActions {
         driver.switchTo().window(tabs.get(tabs.size() - 2));
     }
 
-    protected void moveToElement(WebElement element) {
-        LOGGER.info("Move to element " + element);
+    protected void moveToElement(WebElement webElement) {
+        LOGGER.info("Move to element " + webElement);
         Actions actions = new Actions(driver);
-        actions.moveToElement(element).perform();
+        actions.moveToElement(webElement).perform();
     }
 
     private void chooseOptionFromDropDownByPropertyEquals(List<WebElement> webElementsList, String option) {
@@ -79,7 +79,7 @@ public abstract class BaseActions {
         }
     }
 
-    private void chooseOptionFromDropDownBPropertyContains(List<WebElement> webElementList, String option) {
+    private void chooseOptionFromDropDownByPropertyContains(List<WebElement> webElementList, String option) {
         LOGGER.info("Choose option that contains " + option + " from drop down menu");
         for (WebElement webElement : webElementList) {
             moveToElement(webElement);
