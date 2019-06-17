@@ -1,4 +1,11 @@
 package com.epam.tat.steam.tests;
 
-public class SteamPoweredLoginTest {
+import org.testng.annotations.Test;
+
+public class SteamPoweredLoginTest extends BaseTest{
+
+    @Test
+    public void loginTest (){
+
+    }
 }

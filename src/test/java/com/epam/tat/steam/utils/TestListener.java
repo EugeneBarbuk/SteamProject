@@ -14,7 +14,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class TestListener implements ITestListener {
-    private static final Logger LOGGER = LogManager.getLogger();
+    private final Logger LOGGER = LogManager.getLogger();
 
     @Override
     public void onTestStart(ITestResult iTestResult) {
